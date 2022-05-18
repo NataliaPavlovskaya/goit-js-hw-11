@@ -3,7 +3,7 @@ import cardTemplate from '../card-template/templates-card.hbs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import throttle from 'lodash.throttle';
+// r
 
 const { searchForm, gallery, loadMoreBtn, endCollectionText } = {
     searchForm: document.querySelector('.search-form'),
