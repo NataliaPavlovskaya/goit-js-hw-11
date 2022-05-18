@@ -5,16 +5,16 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 // r
 
-const { searchForm, gallery, loadMoreBtn, endCollectionText } = {
+const { searchForm, galleryEl, loadMoreBtn, endCollectionText } = {
     searchForm: document.querySelector('.search-form'),
-    gallery: document.querySelector('.gallery'),
+    galleryEl: document.querySelector('.gallery'),
     loadMoreBtn: document.querySelector('.load-more'),
     endCollectionText: document.querySelector('.end-collection-text'),
   };
   
   function renderCardImage(arr) {
     const markup = arr.map(item => cardTemplate(item)).join('');
-    gallery.insertAdjacentHTML('beforeend', markup);
+    galleryEl.insertAdjacentHTML('beforeend', markup);
   }
   
   let lightbox = new SimpleLightbox('.photo-card a', {
@@ -50,7 +50,7 @@ const { searchForm, gallery, loadMoreBtn, endCollectionText } = {
     try {
       if (response.totalHits > 0) {
         Notify.success(`Hooray! We found ${response.totalHits} images.`);
-        gallery.innerHTML = '';
+        galleryEl.innerHTML = '';
         renderCardImage(response.hits);
         lightbox.refresh();
         endCollectionText.classList.add('is-hidden');
@@ -66,7 +66,7 @@ const { searchForm, gallery, loadMoreBtn, endCollectionText } = {
       }
   
       if (response.totalHits === 0) {
-        gallery.innerHTML = '';
+        galleryEl.innerHTML = '';
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         loadMoreBtn.classList.add('is-hidden');
         endCollectionText.classList.add('is-hidden');
