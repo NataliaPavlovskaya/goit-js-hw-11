@@ -7,4 +7,5 @@ export default async function fetchImages(value, page) {
 
   return await axios.get(`${url}${filter}`)
   .then(response => response.data);
+  
 };
